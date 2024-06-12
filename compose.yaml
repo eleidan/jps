@@ -1,0 +1,15 @@
+volumes:
+  bash-history:
+  hex-files:
+  mix-files:
+
+services:
+  dev:
+    build: .
+    image: jps_app
+    user: phantom
+    volumes:
+      - .:/home/phantom/app
+      - bash-history:/home/phantom/bash-history
+      - hex-files:/home/phantom/.hex
+      - mix-files:/home/phantom/.mix
