@@ -17,30 +17,3 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
 
-
-## TODO
-
-Start your Phoenix app with:
-
-    $ mix phx.server
-
-You can also run your app inside IEx (Interactive Elixir) as:
-
-    $ iex -S mix phx.server
-
-
-
-## Log
-
-```
-mix phx.new . \
-    --app my_app \
-    --module MyApp \
-    --database postgres \
-    --no-html \
-    --no-mailer \
-    --no-gettext \
-    --no-dashboard \
-    --no-assets
-```
-
