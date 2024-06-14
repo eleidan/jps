@@ -8,5 +8,6 @@ defmodule MyAppWeb.Router do
   scope "/api", MyAppWeb do
     pipe_through :api
     post "/jobs/resolve", JobController, :resolve
+    post "/jobs/convert", JobController, :convert
   end
 end

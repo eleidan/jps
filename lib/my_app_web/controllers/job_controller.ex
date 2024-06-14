@@ -5,6 +5,15 @@ defmodule MyAppWeb.JobController do
 
   action_fallback MyAppWeb.FallbackController
 
+  def convert(conn, params) do
+    with {:ok, tasks} <- Jobs.resolve(params),
+         {:ok, result} <- Jobs.convert(%{tasks: tasks}) do
+      conn
+      |> put_status(:created)
+      |> text(result)
+    end
+  end
+
   def resolve(conn, params) do
     with {:ok, tasks} <- Jobs.resolve(params) do
       conn

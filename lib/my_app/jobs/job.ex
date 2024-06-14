@@ -25,6 +25,7 @@ defmodule MyApp.Jobs.Job do
     |> validate_required([:command, :name])
   end
 
+  # TODO: Make sure there are no duplicate task names
   def validate_duplication(changeset) do
     changeset
   end
