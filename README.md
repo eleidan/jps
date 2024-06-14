@@ -17,3 +17,27 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
 
+## How-To
+This project uses Docker and friends!
+
+### Get application server up-n-running
+  1. To get all Docker images and run the application, issue the following command:
+  ```
+  docker compose up web
+  ```
+  1. To stop application server, press `<CTRL`-`C>`.
+  1. To wrap up, issue the following command:
+  ```
+  docker compose down
+  ```
+
+### Test application
+Once application server is up, use **Bash** scripts in the `./scripts` directory like follows:
+
+    ```
+    scripts/jobs_resolve_valid.bash
+    ```
+    ```
+    scripts/jobs_convert_valid.bash
+    ```
+
