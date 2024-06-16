@@ -35,8 +35,13 @@ defmodule MyApp.JobsTest do
     end
 
     @describetag json: File.read!("test/data/jobs_resolve_invalid_with_task_duplication.json")
-    test "with task duplication", %{result: result, params: params} do
-      result.(params)
+    test "with task duplication, returns {:error, %Ecto.Changeset{}}", %{
+      result: result,
+      params: params
+    } do
+      {_, r} = result.(params)
+      assert {:error, %Ecto.Changeset{}} = result.(params)
+      assert [{:tasks, {"the following task names are not unique: task-1", []}}] = r.errors
     end
 
     @describetag json: File.read!("test/data/jobs_resolve_invalid_without_task_command.json")

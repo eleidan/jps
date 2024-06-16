@@ -11,7 +11,7 @@ defmodule MyApp.Jobs do
   end
 
   def resolve(data) do
-    with {:ok, job} <- Job.changeset(%Job{}, data),
+    with {:ok, job} <- Job.from_map(data),
          %{} = data <- Job.as_map(job) do
       result = MyApp.Jobs.Commands.ResolveJob.run(data)
       result

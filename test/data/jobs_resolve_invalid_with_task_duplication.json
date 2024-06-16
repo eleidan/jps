@@ -6,6 +6,10 @@
     },
     {
       "name": "task-1",
+      "command": "touch /tmp/foo"
+    },
+    {
+      "name": "task-1",
       "command": "touch /tmp/file1"
     },
     {

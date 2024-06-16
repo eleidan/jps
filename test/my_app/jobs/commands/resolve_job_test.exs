@@ -5,7 +5,7 @@ defmodule MyApp.Jobs.Commands.ResolveJobTest do
 
   @data File.read!("test/data/jobs_resolve_valid.json")
         |> Jason.decode!(keys: :atoms)
-  @job MyApp.Jobs.Job.changeset(%MyApp.Jobs.Job{}, @data) |> elem(1) |> MyApp.Jobs.Job.as_map()
+  @job MyApp.Jobs.Job.from_map(@data) |> elem(1) |> MyApp.Jobs.Job.as_map()
   @tasks @job[:tasks]
 
   setup context do
@@ -21,7 +21,7 @@ defmodule MyApp.Jobs.Commands.ResolveJobTest do
       data = context[:json] |> Jason.decode!(keys: :atoms)
 
       job =
-        MyApp.Jobs.Job.changeset(%MyApp.Jobs.Job{}, data) |> elem(1) |> MyApp.Jobs.Job.as_map()
+        MyApp.Jobs.Job.from_map(data) |> elem(1) |> MyApp.Jobs.Job.as_map()
 
       {:ok, params: [job]}
     end
