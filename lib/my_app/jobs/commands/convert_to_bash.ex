@@ -1,4 +1,6 @@
 defmodule MyApp.Jobs.Commands.ConvertToBash do
+  @moduledoc false
+
   @compile if Mix.env() == :test, do: :export_all
 
   def run(%{} = params) do
@@ -9,7 +11,6 @@ defmodule MyApp.Jobs.Commands.ConvertToBash do
 
   defp covert_to_bash(tasks) do
     tasks
-    |> Enum.map(fn task -> task[:command] end)
-    |> Enum.join("\n")
+    |> Enum.map_join("\n", fn task -> task[:command] end)
   end
 end

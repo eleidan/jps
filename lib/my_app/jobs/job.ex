@@ -1,4 +1,6 @@
 defmodule MyApp.Jobs.Job do
+  @moduledoc false
+
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -41,7 +43,7 @@ defmodule MyApp.Jobs.Job do
         |> then(fn uniq_names -> names -- uniq_names end)
         |> Enum.uniq()
 
-      if length(duplicated_task_names) == 0 do
+      if Enum.empty?(duplicated_task_names) do
         []
       else
         [

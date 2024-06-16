@@ -1,4 +1,6 @@
 defmodule MyApp.Jobs.Commands.ResolveJob do
+  @moduledoc false
+
   @compile if Mix.env() == :test, do: :export_all
 
   def run(%{} = params) do
