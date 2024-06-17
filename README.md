@@ -7,7 +7,7 @@ This project uses Docker and friends!
   ```
   docker compose run dev
   ```
-  1. Once inside Docker container interaction Bash session, issue the following command:
+  1. Once inside Docker container interactive Bash session, issue the following command:
   ```
   mix local.hex --force && mix setup --force
   ```
